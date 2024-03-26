@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Timer } from './components/Timer';
+// import { Main } from './components/Main';
+import CssBaseline from '@mui/material/CssBaseline';
+
+import '@fontsource/ubuntu/300.css';
+import '@fontsource/ubuntu/400.css';
+import '@fontsource/ubuntu/500.css';
+import '@fontsource/ubuntu/700.css';
+
+
+
+export const theme = createTheme({
+  palette: {
+    mode: 'light',
+    primary: {
+      main: '#9e4847',
+    },
+    secondary: {
+      main: '#ffffff',
+      contrastText: '#ac504c',
+    },
+    background: {
+      default: '#ac504c',
+      paper: '#b5635e',
+    },
+    text: {
+      primary: '#fffefe',
+      secondary: '#00000f',
+      disabled: '#fffefe',
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to fumble.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeProvider theme={theme}>
+      <CssBaseline/>
+
+        <Timer/>
+    </ThemeProvider>
+  )
 }
+
+
 
 export default App;
