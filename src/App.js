@@ -1,6 +1,8 @@
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Timer } from './components/Timer';
 // import { Main } from './components/Main';
+
+import Stack from '@mui/material/Stack';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import '@fontsource/ubuntu/300.css';
@@ -36,8 +38,13 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline/>
+        <Stack sx = {{
+            p: 2,
+            gap: 2,
+        }}>
 
         <Timer/>
+        </Stack>
     </ThemeProvider>
   )
 }
