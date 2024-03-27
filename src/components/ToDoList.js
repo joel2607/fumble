@@ -4,8 +4,7 @@ import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-// import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 
 export default function ToDoList() {
     const [tasks, setTasks] = useState([]);
