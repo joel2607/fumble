@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-export function Timer() {
+export function Timer({setBreak}) {
     var deadline = 60*25;
     const [seconds, setSeconds] = useState(deadline);
     const [started, setStarted] = useState(false);
@@ -40,6 +40,8 @@ export function Timer() {
     }
 
     const setTime = (t) => {
+        if(t > 60*24) setBreak(true);
+        else setBreak(false);
         deadline = t;
         setSeconds(deadline)
     }
@@ -53,7 +55,7 @@ export function Timer() {
     
     return (
       <>
-      <Container fixed maxWidth="sm" >
+      <Container fixed maxWidth="md" >
         <Paper elevation={0}>
         <Stack sx = {{
             p: 2,
@@ -68,9 +70,9 @@ export function Timer() {
                 justifyContent="center"
                 alignItems="center">
                     
-                        <Button variant="text" color='secondary' onClick={() => setTime(60*25)}>25 mins</Button>
-                        <Button variant="text" color='secondary' onClick={() => setTime(60*15)}>15 mins</Button>
-                        <Button variant="text" color='secondary' onClick={() => setTime(60*5)}>5 mins</Button>
+                        <Button variant="text" color='secondary' onClick={() => setTime(60*25)}>FOCUS</Button>
+                        <Button variant="text" color='secondary' onClick={() => setTime(60*15)}>Long Break</Button>
+                        <Button variant="text" color='secondary' onClick={() => setTime(60*5)}>Short Break</Button>
                     
                 </Stack>
             </Container>

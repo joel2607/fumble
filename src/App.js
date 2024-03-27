@@ -1,4 +1,4 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider} from '@mui/material/styles';
 import { Timer } from './components/Timer';
 // import { Main } from './components/Main';
 
@@ -10,35 +10,19 @@ import '@fontsource/ubuntu/400.css';
 import '@fontsource/ubuntu/500.css';
 import '@fontsource/ubuntu/700.css';
 import { Navbar } from './components/Navbar';
+import { focusTheme, breakTheme } from './themes';
 
+import ToDoList from './components/ToDoList';
 
+import React from 'react';
+import { useState } from 'react';
 
-export const theme = createTheme({
-  palette: {
-    mode: 'light',
-    primary: {
-      main: '#9e4847',
-      contrastText: '#fffefe'
-    },
-    secondary: {
-      main: '#ffffff',
-      contrastText: '#ac504c',
-    },
-    background: {
-      default: '#ac504c',
-      paper: '#b5635e',
-    },
-    text: {
-      primary: '#fffefe',
-      secondary: '#00000f',
-      disabled: '#fffefe',
-    },
-  },
-});
 
 function App() {
+
+  const [isBreak, setBreak] = useState(false);
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={isBreak?focusTheme:breakTheme}>
       <CssBaseline/>
         <Stack sx = {{
             p: 2,
@@ -46,7 +30,8 @@ function App() {
             
         }}>
           <Navbar/>
-          <Timer/>
+          <Timer setBreak = {setBreak}></Timer>
+          <ToDoList/>
         </Stack>
     </ThemeProvider>
   )
