@@ -68,9 +68,9 @@ export function Timer() {
                 justifyContent="center"
                 alignItems="center">
                     
-                        <Button variant="contained" onClick={() => setTime(60*25)}>25 mins</Button>
-                        <Button variant="contained" onClick={() => setTime(60*15)}>15 mins</Button>
-                        <Button variant="contained" onClick={() => setTime(60*5)}>5 mins</Button>
+                        <Button variant="text" color='secondary' onClick={() => setTime(60*25)}>25 mins</Button>
+                        <Button variant="text" color='secondary' onClick={() => setTime(60*15)}>15 mins</Button>
+                        <Button variant="text" color='secondary' onClick={() => setTime(60*5)}>5 mins</Button>
                     
                 </Stack>
             </Container>
@@ -78,7 +78,7 @@ export function Timer() {
             <Typography variant='h1' align = 'center' sx = {{fontWeight: 'bold'}}>{convertSeconds(seconds)}</Typography>
 
             <Container align = "center">
-                <Button variant="contained" color='secondary' sx={{ height: 50, width: 200, boxShadow: 15 }} onClick={() => startTimer()}>{started?"STOP":"START"}</Button>
+                <Button variant="contained" color='secondary' sx={{ height: 50, width: 200, boxShadow: 15, fontWeight: 'bold', fontSize: 20}} onClick={() => startTimer()}>{started?"STOP":"START"}</Button>
             </Container>
         </Stack>
         </Paper>
