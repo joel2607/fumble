@@ -54,7 +54,7 @@ export function Timer() {
     return (
       <>
       <Container fixed maxWidth="sm" >
-        <Paper>
+        <Paper elevation={0}>
         <Stack sx = {{
             p: 2,
             gap: 2,
